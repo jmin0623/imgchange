@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 변경</title>
+    <link href="css/08.css" rel="stylesheet">
+</head>
+
+<body>
+    <section class="cont01">
+        <div>
+            <img id='bg_img' src="img/깐3.jpg" alt="내새끼">
+            <div class="info">
+                <strong>2022.09.26 월요일</strong>
+                <h3>컨텐츠 제목 작성</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum eum voluptatem in, modi sed soluta
+                    possimus veniam laboriosam odio impedit omnis, aut sapiente similique ratione veritatis culpa!
+                    Suscipit,
+                    repellat adipisci.</p>
+                <button id="btn">이미지보기<span id="num_text">1 </span>/3</button>
+            </div><!-- info end -->
+        </div>
+    </section><!-- cont01 end -->
+
+    <script>
+        let btn = document.getElementById('btn');
+        let sectionImg = document.getElementById('bg_img');
+
+        let img1 = 'img/깐3.jpg';
+        let img2 = 'img/깐2.jpg';
+        let img3 = 'img/깐1.jpg';
+        let imgList = [img1, img2, img3]; //변수는 ''안해도 됨
+
+        //숫자바꾸기
+        let numText = document.getElementById('num_text');
+        let numList = [1, 2, 3];
+        let num = 0;
+
+
+        let i = 0;
+        btn.onclick = function () { //btn을 클릭했을 때 이벤트 실행
+            i++; //i값 증감
+            num++;
+
+            if (i >= imgList.length) {
+                i = 0;
+                num = 0;
+            }
+            //조건문 i 값이 imgList가 가지는 수와 동일할 때
+            //i값은 0
+            sectionImg.src = imgList[i];
+            //변수명 sectionImg의 경로는 imgList
+            numText.innerText = numList[num];
+        }
+
+
+    </script>
+</body>
+
+</html>
